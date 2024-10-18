@@ -55,4 +55,3 @@ document.getElementById("monElement").textContent = "Nouveau contenu";
 document.getElementById("monBouton").addEventListener("click", function() {
     alert("Bouton cliqué !");
   });
-  

@@ -5,7 +5,7 @@ header.textContent="Bienvenue";
 document.body.append(header);
 
 let menu=document.createElement("div");
-menu.innerHTML="<a href='#''>Accueil</a> / <a href='index.html'>Une autre page</a>";
+menu.innerHTML="<a href='#'>Accueil</a> / <a href='index.html'>Une autre page</a>";
 document.body.append(menu);
 
 let paragraph=document.createElement("p");
