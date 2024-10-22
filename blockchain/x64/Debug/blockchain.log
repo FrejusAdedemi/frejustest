@@ -1,0 +1,4 @@
+﻿  blockchain.cpp
+C:\Users\freju\source\repos\blockchain\blockchain.cpp(20,71): warning C4244: 'initialisation' : conversion de 'time_t' en 'long', perte possible de données
+C:\Users\freju\source\repos\blockchain\blockchain.cpp(55,34): warning C4267: 'argument' : conversion de 'size_t' en 'int', perte possible de données
+  blockchain.vcxproj -> C:\Users\freju\source\repos\blockchain\x64\Debug\blockchain.exe
