@@ -65,7 +65,7 @@ public:
             std::cout << "  Current Hash:  " << block.hash << "\n";
             std::cout << "  Data:          " << block.data << "\n";
             std::cout << "  Timestamp:     " << block.timestamp << "\n";
-            std::cout << "----------\n";
+            std::cout << std::endl;
         }
     }
 };
