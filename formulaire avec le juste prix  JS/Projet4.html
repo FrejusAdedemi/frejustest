@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le juste prix avec Javascript</title>
+</head>
+
+<body>
+    <style>
+        body 
+        {
+            background-color: #2b2b2b;
+            color: #ffa500;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        input 
+        {
+            min-width: 500px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        button 
+        {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #1e90ff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .attempt 
+        {
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 8px;
+            margin: 5px auto;
+            width: 60%;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+    </style>
+    <h1>Le juste Prix</h1>
+    <p id="attempts">Tentative(s): 0</p>
+    <p id="error" style="display: none; color: red;">Veuillez entrer un nombre valide</p>
+    <input type="text" id="userInput" placeholder="Devinez le prix ! (entre 0 et 1000)">
+    <button id="submitBtn">Deviner</button>
+    <div id="history">
+        <strong>Historique des tentatives :</strong>
+    </div>
+
+    <script src="Projet4.js"></script>
+</body>
+</html>

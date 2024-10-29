@@ -1,0 +1,178 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generateur de citation</title>
+</head>
+
+<body>
+    <style>html, body {
+        background: #5C258D;
+        background: linear-gradient(to right, #4389A2, #5C258D);
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    
+    .container {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        max-width: 500px;
+        width: 90%;
+    }
+    
+    #citation {
+        font-size: 1.5em;
+        font-family: 'Satisfy', cursive;
+        margin-bottom: 10px;
+    }
+    
+    #citation:before {
+        content: open-quote;
+    }
+    
+    #citation:after {
+        content: close-quote;
+    }
+    
+    #auteur {
+        font-size: 1.2em;
+        font-style: italic;
+        color:blue;
+    }
+    
+    #nouveau {
+        display: inline-block;
+        text-align: right;
+        width: 100%;
+        margin: 50px;
+        padding: 30px;
+        font-size: 1em;
+        color: white;
+        background-color: #ff9966;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    #nouveau:hover {
+        background-color: #ff784e;
+    }
+    </style>
+    <div id="citation">
+        La vie est un mystère qu'il faut vivre, et non un problème à résoudre.
+    </div>
+    <div id="auteur">
+        Gandhi
+    </div>
+    <button id="nouveau"">
+        Nouvelle citation
+    </button>
+
+    <script src="Projet3JsCitation.js"></script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de citations</title>
+    <style>
+        /* Styles généraux pour le corps de la page */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4389A2, #5C258D);
+        }
+
+        /* Conteneur principal */
+        .container {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        /* Style pour la citation */
+        #citation {
+            font-size: 1.5em;
+            font-family: 'Georgia', serif;
+            line-height: 1.4em;
+            color: #333;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        /* Style pour les guillemets */
+        #citation:before,
+        #citation:after {
+            content: '"';
+            color: #333;
+        }
+
+        /* Ligne de séparation */
+        .separator {
+            background-color: #6c757d;
+            height: 2px;
+            width: 50px;
+            margin: 20px auto;
+        }
+
+        /* Style pour l'auteur */
+        #auteur {
+            font-size: 1.2em;
+            color: #555;
+            font-style: italic;
+        }
+
+        /* Style pour le bouton */
+        #nouveau {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            font-size: 1em;
+            color: white;
+            background-color: #ff7f50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Style de survol pour le bouton */
+        #nouveau:hover {
+            background-color: #ff6347;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="citation">La vie est un mystère qu'il faut vivre, et non un problème à résoudre.</div>
+        <div class="separator"></div>
+        <div id="auteur">Gandhi</div>
+        <button id="nouveau">Nouvelle citation</button>
+    </div>
+
+    <script src="Projet3JsCitation.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de citations</title>
+    <style>
+        html, body {
+            background: #5C258D;
+            background: linear-gradient(to right, #4389A2, #5C258D);
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        #citation {
+            font-size: 1.5em;
+            font-family: 'Satisfy', cursive;
+            margin-bottom: 10px;
+        }
+        
+        #citation:before {
+            content: open-quote;
+        }
+        
+        #citation:after {
+            content: close-quote;
+        }
+        
+        #auteur {
+            font-size: 1.2em;
+            font-style: italic;
+            color: #555;
+        }
+        
+        #nouveau {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #ff9966;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        #nouveau:hover {
+            background-color: #ff784e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="citation">La vie est un mystère qu'il faut vivre, et non un problème à résoudre.</div>
+        <div id="auteur">Gandhi</div>
+        <button id="nouveau">Nouvelle Citation</button>
+    </div>
+
+    <script>
+        let citations = [
+            ["La vie est un mystère qu'il faut vivre, et non un problème à résoudre.", "Gandhi"],
+            ["Le plus grand risque est de ne prendre aucun risque.", "Mark Zuckerberg"],
+            ["Méritez votre statut de leader chaque jour.", "Michael Jordan"],
+            ["Soyez le changement que vous voulez voir dans le monde.", "Gandhi"],
+            ["A chaque fois que vous vous retrouvez du même côté que la majorité, il est temps de prendre du recul, et de réfléchir.", "Mark Twain"],
+            ["Seulement ceux qui prendront le risque d’aller trop loin découvriront jusqu’où on peut aller.", "T.S. Eliot"],
+            ["Le succès c’est tomber sept fois, se relever huit.", "Proverbe japonais"],
+            ["Dans vingt ans vous serez plus déçus par les choses que vous n’avez pas faites que par celles que vous avez faites. Alors sortez des sentiers battus. Mettez les voiles. Explorez. Rêvez. Découvrez.", "Mark Twain"],
+            ["Si vous attendez pour agir, tout ce que vous gagnerez, avec le temps, c’est de l’âge.", "Brian Tracy"],
+            ["Quand on concentre son attention sur un seul projet, l’esprit suggère constamment des idées et des améliorations qui lui échapperaient s’il était occupé avec plusieurs projets en même temps.", "P.T. Barnum"]
+        ];
+
+        let currentCitationIndex = 0;
+
+        function nouvelleCitation() {
+            let citation = citations[currentCitationIndex];
+            document.getElementById("citation").textContent = citation[0];
+            document.getElementById("auteur").textContent = citation[1];
+            currentCitationIndex = (currentCitationIndex + 1) % citations.length;
+        }
+
+        document.getElementById("nouveau").addEventListener("click", nouvelleCitation);
+
+        // Affiche la première citation lors du chargement de la page
+        nouvelleCitation();
+    </script>
+</body>
+
+</html>

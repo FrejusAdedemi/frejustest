@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le juste prix avec Javascript</title>
+</head>
+
+<body>
+    <style>
+        body 
+        {
+            background-color: #2b2b2b;
+            color: #ffa500;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        input 
+        {
+            min-width: 500px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        button 
+        {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #1e90ff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <h1>Le juste Prix</h1>
+    <p id="attempts">Tentative(s): 0</p>
+    <p id="error" style="display: none; color: red;">Veuillez entrer un nombre valide</p>
+    <input type="text" id="userInput" placeholder="Devinez le prix ! (entre 0 et 1000)">
+    <button id="submitBtn">Deviner</button>
+    <div id="history">
+        <strong>Historique des tentatives :</strong>
+    </div>
+    <script>
+        // Etape 1 - Sélectionner nos éléments
+        const attemptsElement = document.getElementById("attempts");
+        const historyElement = document.getElementById("history");
+        const errorElement = document.getElementById("error");
+        const inputElement = document.getElementById("userInput");
+        const submitButton = document.getElementById("submitBtn");
+
+        // Etape 2 - Cacher l'erreur
+        function cacherErreur() 
+        {
+            errorElement.style.display = "none";
+        }
+        cacherErreur();
+
+        // Etape 3 - Générer un nombre aléatoire
+        const nombreAleatoire = Math.floor(Math.random() * 1000) + 1;
+        console.log("Le juste prix est :", nombreAleatoire);
+
+        let nombreTentative = 0;
+        // Etape 4 - Vérifier que l'utilisateur donne bien un nombre
+        function estNombre(valeur) 
+        {
+            return !isNaN(valeur) && valeur !== "" && valeur >= 0 && valeur <= 1000;
+        }
+
+        // Etape 5 - Agir à l'envoi du formulaire
+        submitButton.addEventListener("click", function (event) 
+        {
+            event.preventDefault();
+            cacherErreur();
+
+            const valeur = parseInt(inputElement.value);
+            if (!estNombre(valeur)) 
+            {
+                errorElement.style.display = "block";
+                errorElement.textContent = "Veuillez entrer un nombre";
+                return;
+            }
+            nombreTentative++;
+            attemptsElement.textContent = `Tentative(s): ${nombreTentative}`;
+
+            verifierNombre(valeur);
+        });
+
+        // Etape 6 - Créer la fonction vérifier
+        function verifierNombre(valeur) 
+        {
+            const tentative = document.createElement("div");
+            tentative.classList.add("attempt");
+
+            if (valeur < nombreAleatoire) 
+            {
+                tentative.classList.add("plus");
+                tentative.textContent = `#${nombreTentative} ( ${valeur} ) C'est plus !`;
+            } 
+            else if (valeur > nombreAleatoire)
+            {
+                tentative.classList.add("moins");
+                tentative.textContent = `#${nombreTentative} ( ${valeur} ) C'est moins !`;
+            } 
+            else
+            {
+                tentative.classList.add("correct");
+                tentative.textContent = `#${nombreTentative} ( ${valeur} ) Félicitations ! Vous avez trouvé le juste prix !`;
+                inputElement.value = ""; // Réinitialiser le champ de saisie
+            }
+
+            historyElement.appendChild(tentative);
+        }
+    </script>
+</body>
+
+</html>
