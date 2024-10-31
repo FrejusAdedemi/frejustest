@@ -17,8 +17,7 @@ requete.onload = function() {
             if (requete.status === 200) 
                 {
                     let response = requete.response;
-                    console.log(response);
-                    let reponse = requete.response;
+                    // console.log(response);
                     let prixEnEuros= reponse.EUR.last;
                     document.querySelector('#price_label').textContent = prixEnEuros;
                 }
