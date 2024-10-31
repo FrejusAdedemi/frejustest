@@ -1,107 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metéo</title>
-    <style>
-        html, body {
-  background: #2980B9;
-  background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
-  background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
-  min-width: 400px;
-}
-
-#ville {
-  text-transform: capitalize;
-}
-
-#temperature {
-  font-size: 4em;
-}
-
-#changer {
-  background: rgba(178, 223, 251, .3);
-  cursor: pointer;
-}
-    </style>
-</head>
-<body>
-    
-    <div class="container">
-  
-        <div class="row justify-content-center">
-          
-          <div class="col-md-8">
-            <!-- Titre -->
-            <h1 class="text-center mt-5">Météo</h1>
-            
-            <!-- Ville / Temperature -->
-            <div class="text-center">
-              <span id="ville">Montpellier</span>
-              
-              <div id="temperature">
-                <span id="temperature_label">
-                  xx.x
-                </span> °C
-              </div>
-            </div>
-          </div>
-          
-        </div>
-        
-        <div class="row justify-content-center">  
-          <div class="col-md-8 text-center">
-            <!-- Changer de ville -->
-            <div id="changer" class="mt-2 text-center p-3 text-white font-weight-bold text-uppercase d-inline-block">
-              Changer de ville
-            </div>
-          </div>
-          
-        </div>
-        
-      </div>
-      <script>
-  function recevoirTemperature(ville)
-  {
-          
-        document.getElementById("changer").addEventListener("click", function() {
-    // Affiche une boîte de dialogue pour demander la ville
-    let villeChoisie = prompt("Entrez le nom de la ville :");
-    
-    // Vérifie que l'utilisateur a saisi une ville
-    if (villeChoisie) {
-        ville = villeChoisie;
-        document.getElementById("ville").textContent = ville;
-
-        // Met à jour l'URL avec la nouvelle ville et envoie une requête pour obtenir les données
-        const url = 'https://api.openweathermap.org/data/2.5/weather?q=' + ville + '&APPID=834ecad26dd2c124b0c28d31eb188f46&units=metric';
-
-        let requete = new XMLHttpRequest();
-        requete.open("GET", url);
-        requete.responseType = "json";
-        requete.send();
-
-        requete.onload = function() {
-            if (requete.readyState === XMLHttpRequest.DONE) {
-                if (requete.status === 200) {
-                    let response = requete.response;
-                    console.log(response);
-
-                    // Mettre à jour la température dans l'interface
-                    let temperature = response.main.temp;
-                    document.getElementById("temperature_label").textContent = temperature;
-                } else {
-                    alert("Une erreur est survenue");
-                }
-            }
-        };
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metéo</title>
+  <style>
+    html,
+    body {
+      background: #2980B9;
+      background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
+      background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
+      min-width: 400px;
     }
-});
-}
-recevoirTemperature("ville");
+
+    #ville {
+      text-transform: capitalize;
+    }
+
+    #temperature {
+      font-size: 4em;
+    }
+
+    #changer {
+      background: rgba(178, 223, 251, .3);
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="row justify-content-center">
+
+      <div class="col-md-8">
+        <!-- Titre -->
+        <h1 class="text-center mt-5">Météo</h1>
+
+        <!-- Ville / Temperature -->
+        <div class="text-center">
+          <span id="ville">Montpellier</span>
+
+          <div id="temperature">
+            <span id="temperature_label">
+              xx.x
+            </span> °C
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-8 text-center">
+        <!-- Changer de ville -->
+        <div id="changer" class="mt-2 text-center p-3 text-white font-weight-bold text-uppercase d-inline-block">
+          Changer de ville
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <script>
+    function recevoirTemperature(ville) {
+
+      document.getElementById("changer").addEventListener("click", function () {
+        // Affiche une boîte de dialogue pour demander la ville
+        let villeChoisie = prompt("Entrez le nom de la ville :");
+
+        // Vérifie que l'utilisateur a saisi une ville
+        if (villeChoisie) {
+          ville = villeChoisie;
+          document.getElementById("ville").textContent = ville;
+
+          // Met à jour l'URL avec la nouvelle ville et envoie une requête pour obtenir les données
+          const url = 'https://api.openweathermap.org/data/2.5/weather?q=' + ville + '&APPID=834ecad26dd2c124b0c28d31eb188f46&units=metric';
+
+          let requete = new XMLHttpRequest();
+          requete.open("GET", url);
+          requete.responseType = "json";
+          requete.send();
+
+          requete.onload = function () {
+            if (requete.readyState === XMLHttpRequest.DONE) {
+              if (requete.status === 200) {
+                let response = requete.response;
+                console.log(response);
+
+                // Mettre à jour la température dans l'interface
+                let temperature = response.main.temp;
+                document.getElementById("temperature_label").textContent = temperature;
+              } else {
+                alert("Une erreur est survenue");
+              }
+            }
+          };
+        }
+      });
+    }
+    recevoirTemperature("ville");
 
 
-      </script>
+  </script>
 </body>
+
 </html>
